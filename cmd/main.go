@@ -1,11 +1,11 @@
 package main
 
 import (
-	"avito-banners/config"
-	"avito-banners/db"
-	"avito-banners/handlers"
-	"avito-banners/middleware"
-	"avito-banners/tools"
+	"avito-banners/internal/config"
+	"avito-banners/internal/db"
+	"avito-banners/internal/handlers"
+	"avito-banners/internal/middleware"
+	"avito-banners/pkg/tools"
 	"github.com/charmbracelet/log"
 	"github.com/gin-gonic/gin"
 )
@@ -26,7 +26,8 @@ func startRouter() {
 }
 
 func main() {
-	config.Database = db.SetupDatabase()
+	config.LoadConfig()
+	db.SetupDatabase()
 	tools.SetupRedis()
 	startRouter()
 }

@@ -7,6 +7,7 @@ require (
 	github.com/charmbracelet/log v0.4.0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-redis/redis/v8 v8.11.5
+	github.com/joho/godotenv v1.5.1
 	github.com/stretchr/testify v1.9.0
 	gorm.io/driver/postgres v1.5.7
 	gorm.io/gorm v1.25.9

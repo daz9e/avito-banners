@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"avito-banners/config"
-	"avito-banners/db"
+	"avito-banners/internal/config"
+	"avito-banners/internal/db"
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"

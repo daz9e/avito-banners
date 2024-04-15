@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"avito-banners/internal/config"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -31,7 +32,7 @@ func AdminAuthMiddleware() gin.HandlerFunc {
 			return
 		}
 
-		if token != "admin_token" {
+		if token != config.GetAdminToken() {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized: Admin token required"})
 			c.Abort()
 			return
@@ -39,12 +40,11 @@ func AdminAuthMiddleware() gin.HandlerFunc {
 		c.Next()
 	}
 }
-
 func getRoleByToken(token string) (string, bool) {
 	switch token {
-	case "admin_token":
+	case config.GetAdminToken():
 		return "admin", true
-	case "user_token":
+	case config.GetUserToken():
 		return "user", true
 	default:
 		return "", false

@@ -1,7 +1,7 @@
 package tools
 
 import (
-	"avito-banners/config"
+	"avito-banners/internal/config"
 	"github.com/go-redis/redis/v8"
 )
 
